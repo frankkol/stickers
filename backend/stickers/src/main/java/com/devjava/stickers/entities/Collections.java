@@ -7,24 +7,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_countries")
-public class Countries {
-
+@Table(name = "tb_collections")
+public class Collections {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private Long thophiesNumbers;
-
-	public Countries() {
-
+	
+	public Collections() {
+		
 	}
 
-	public Countries(Long id, String name, Long thophiesNumbers) {
+	public Collections(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.thophiesNumbers = thophiesNumbers;
 	}
 
 	public Long getId() {
@@ -43,17 +41,9 @@ public class Countries {
 		this.name = name;
 	}
 
-	public Long getThophies_numbers() {
-		return thophiesNumbers;
-	}
-
-	public void setThophies_numbers(Long thophiesNumbers) {
-		this.thophiesNumbers = thophiesNumbers;
-	}
-
 	@Override
 	public String toString() {
-		return "Countries [id=" + id + ", name=" + name + ", thophies_numbers=" + thophiesNumbers + "]";
+		return "Collections [id=" + id + ", name=" + name + "]";
 	}
 
 }
