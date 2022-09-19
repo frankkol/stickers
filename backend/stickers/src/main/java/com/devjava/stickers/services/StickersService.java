@@ -22,5 +22,12 @@ public class StickersService {
 		
 		return repository.findByCode(code, pageable); 
 	}
+	
+	public Page<Stickers> searchCollection(String name, Pageable pageable) {
+		if(name.isEmpty()) {
+			return null; 
+		}
+		return repository.searchCollection(name, pageable);
+	}
 
 }

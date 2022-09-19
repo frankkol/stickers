@@ -12,17 +12,25 @@ import com.devjava.stickers.entities.Stickers;
 import com.devjava.stickers.services.StickersService;
 
 @RestController
-@RequestMapping(value = "/stickers")
 public class StickersController {
 
 	@Autowired
 	private StickersService service;
 	
 	@GetMapping
+	@RequestMapping(value = "/stickers")
 	public Page<Stickers> findStickers(
 			@RequestParam(value="code", defaultValue = "")String code,
 			Pageable pageable) {
 		return service.findStickers(code, pageable);
+	}
+	
+	@GetMapping
+	@RequestMapping(value = "/collection")
+	public Page<Stickers> findStickersByCollection(
+			@RequestParam(value="name", defaultValue = "")String name,
+			Pageable pageable) {
+		return service.searchCollection(name, pageable);
 	}
 	
 }
