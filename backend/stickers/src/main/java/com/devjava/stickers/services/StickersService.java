@@ -1,8 +1,8 @@
 package com.devjava.stickers.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.devjava.stickers.entities.Stickers;
@@ -14,8 +14,13 @@ public class StickersService {
 	@Autowired
 	private StickersRepository repository;
 	
-	public List<Stickers> findStickers() {
-		return repository.findAll(); 
+	public Page<Stickers> findStickers(String code, Pageable pageable) {
+		
+		if(code.isEmpty()) {
+			return repository.findAll(pageable); 
+		}
+		
+		return repository.findByCode(code, pageable); 
 	}
 
 }
