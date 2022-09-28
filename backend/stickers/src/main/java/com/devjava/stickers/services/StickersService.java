@@ -33,5 +33,10 @@ public class StickersService {
 	public void insert(Stickers sticker) {
 		repository.save(sticker);
 	}
+	
+	public Page<Stickers> findById(String id, Pageable pageable) {
+		Long idLong = Long.parseLong(id);
+		return repository.findCollectionsById(idLong, pageable);
+	}
 
 }

@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,5 +34,11 @@ public class CollectionsController {
 	@RequestMapping(value = "/collections", method = RequestMethod.POST, consumes="application/json")
 	public void insert(@RequestBody Collections collection, Model model) {
 		service.insert(collection);
+	}
+	
+	@PostMapping
+	@RequestMapping(value = "/addcollections/{id}")
+	public void addCollection(@PathVariable(value="id") String id, @RequestParam(value="stickerId", defaultValue = "")String stickerId) {
+		service.addCollection(id, stickerId);
 	}
 }

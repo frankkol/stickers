@@ -15,4 +15,7 @@ public interface StickersRepository extends JpaRepository<Stickers, Long>{
 	@Query("SELECT st FROM Stickers st WHERE st.code = :code")
     public Page<Stickers> findByCode(String code, Pageable pageable);
 	
+	@Query("SELECT st FROM Collections cl JOIN cl.itensCollections it JOIN it.stickers st WHERE cl.id = :code")
+	 public Page<Stickers> findCollectionsById(Long code, Pageable pageable);
+	
 }

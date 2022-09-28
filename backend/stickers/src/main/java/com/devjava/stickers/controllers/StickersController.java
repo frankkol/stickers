@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,12 @@ public class StickersController {
 			@RequestParam(value="name", defaultValue = "")String name,
 			Pageable pageable) {
 		return service.searchCollection(name, pageable);
+	}
+	
+	@GetMapping
+	@RequestMapping(value = "/collections/{id}")
+	public Page<Stickers> findById(@PathVariable(value="id") String id, Pageable pageable) {
+		return service.findById(id, pageable);
 	}
 	
 	@PostMapping
