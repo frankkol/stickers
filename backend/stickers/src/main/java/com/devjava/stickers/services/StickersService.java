@@ -30,4 +30,8 @@ public class StickersService {
 		return repository.searchCollection(name, pageable);
 	}
 
+	public void insert(Stickers sticker) {
+		repository.save(sticker);
+	}
+
 }
