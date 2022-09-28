@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "b362bb53-c7f6-4ccc-b21a-fc218c242b67",
+		"name": "stickers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23334905"
+	},
+	"item": [
+		{
+			"name": "getStickers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/stickers"
+			},
+			"response": []
+		},
+		{
+			"name": "getStickersByCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stickers?code=G1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stickers"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "G1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postCollection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Camilla\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/collections"
+			},
+			"response": []
+		},
+		{
+			"name": "postStickers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"G1\",\r\n    \"playerName\": \"Thomaz Muller\",\r\n    \"playerHeigth\": 1.81,\r\n    \"playerWeight\": 71.0,\r\n    \"playerBirthDate\": \"20/09/1990\",\r\n    \"countries\": {\r\n                \"id\": 1,\r\n                \"name\": \"Alemanha\",\r\n                \"thophies_numbers\": 4\r\n            }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/stickers"
+			},
+			"response": []
+		},
+		{
+			"name": "getCollections",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/collections"
+			},
+			"response": []
+		},
+		{
+			"name": "getCollectionById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/collections/1"
+			},
+			"response": []
+		},
+		{
+			"name": "getCollectionByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/collection?name=Frank",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"collection"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Frank"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCollectionBySticker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/collections?stickerCode=F1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"collections"
+					],
+					"query": [
+						{
+							"key": "stickerCode",
+							"value": "F1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postCollection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/addcollections/1?stickerId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addcollections",
+						"1"
+					],
+					"query": [
+						{
+							"key": "stickerId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCountries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/countries"
+			},
+			"response": []
+		},
+		{
+			"name": "getCountriesByChampions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/countries/champions"
+			},
+			"response": []
+		}
+	]
+}
